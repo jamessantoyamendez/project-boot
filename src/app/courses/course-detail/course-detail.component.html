@@ -1,0 +1,32 @@
+<div class=" col-sm-offset-4 col-sm-4 col-sm-offset-4">
+    <div *ngIf="course">
+        <h2>{{course.name}} details!</h2>
+        <div class="md-form">
+            <label for="form1">Name:</label>
+            <input [(ngModel)]="course.name" type="text" id="form1" class="form-control ">
+        </div>
+        <div>
+            <label>Starting date:</label>
+            <my-date-picker [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+            <!--<input [(ngModel)]="course.startDate" placeholder="date" />-->
+        </div>
+        <div class="md-form">
+            <label for="form1">Duration: </label>
+            <input [(ngModel)]="course.hours" id="form1" class="form-control" />
+        </div>
+
+        <div *ngIf="course" class="form-group">
+            <label for="sel1">Taught by: </label>
+            <select class="form-control" id="sel1">
+              <option *ngFor="let teacher of teachers ">{{teacher.name}} {{teacher.lastname}}</option>
+            </select>
+        </div>
+        <div align="center">
+            <button class="btn btn-success btn-lg outline" (click)="goBack()">Back!</button>
+            <button class="btn btn-success btn-lg outline" (click)="create()">Create Course</button>
+            <button class="btn btn-success btn-lg outline" (click)="updateCourse()">Update Course</button>
+        </div>
+
+    </div>
+
+</div>

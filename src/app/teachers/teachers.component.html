@@ -1,0 +1,36 @@
+<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" align="center">
+    <h2>Teachers</h2>
+    <table class="table table-bordered" [mfData]="course" #mf="mfDataTable">
+        <thead>
+            <tr>
+                <th>
+                    <h3>
+                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                    </h3>
+                </th>
+                <th>
+                    <h3>
+                        <mfDefaultSorter by="lastname">Last Name</mfDefaultSorter>
+                    </h3>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let teacher of teachers" [class.selected]="teacher === selectedTeacher" (click)="onSelectTeacher(teacher)">
+            <tr>
+                <td>
+                    <h4>{{teacher.name}}</h4>
+                </td>
+                <td>
+                    <h4>{{teacher.lastname}}</h4>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="selectedTeacher">
+        <h3>
+            {{selectedTeacher.name | uppercase}}
+        </h3>
+        <button type="button" class="btn btn-success btn-lg outline" (click)="gotoDetailTeacher()">View details!</button>
+    </div>
+</div>

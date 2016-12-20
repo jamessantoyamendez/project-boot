@@ -1,0 +1,18 @@
+<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+    <div>
+        <h2>Create Teacher</h2>
+        <label for="form1">Name: </label>
+        <div class="md-form">
+            <input [(ngModel)]="teacher.name" type="text" id="form1" class="form-control " />
+        </div>
+        <div class="md-form">
+            <label for="form1">Last Name: </label>
+            <input [(ngModel)]="teacher.lastname" type="text" id="form1" class="form-control " />
+        </div>
+    </div>
+    <div aling="center">
+        <button class="btn btn-success btn-lg outline" (click)="goBack()">Back!</button>
+        <button class="btn btn-success btn-lg outline" (click)="createTeacher()">Save Teacher </button>
+    </div>
+
+</div>

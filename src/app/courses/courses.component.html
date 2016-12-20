@@ -1,0 +1,45 @@
+<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" align="center">
+    <h2>Courses</h2>
+    <table class="table table-bordered" [mfData]="courses" #mf="mfDataTable">
+        <thead>
+            <tr>
+                <th>
+                    <h3>
+                        <mfDefaultSorter ng-click="predicate = 'name'; reverse=true" by="name">Name</mfDefaultSorter>
+                    </h3>
+                </th>
+                <th>
+                    <h3>
+                        <mfDefaultSorter by="hours">Hours</mfDefaultSorter>
+                    </h3>
+                </th>
+                <th>
+                    <h3>
+                        <mfDefaultSorter by="startDate">Start Date</mfDefaultSorter>
+                    </h3>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses | orderBy" [class.selected]="course === selectedCourse " (click)="onSelect(course) ">
+                <td>
+                    <h4>{{course.name}}</h4>
+                </td>
+                <td>
+                    <h4>{{course.hours}}</h4>
+                </td>
+                <td>
+                    <h4>{{course.startDate}}</h4>
+                    <span style="color:green;" class="glyphicon glyphicon-ok-sign"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="selectedCourse ">
+        <h3>
+            {{selectedCourse.name | uppercase}}
+        </h3>
+        <button type="button " class="btn btn-success btn-lg outline" (click)="gotoDetail() ">View details of Course!</button>
+    </div>
+</div>
